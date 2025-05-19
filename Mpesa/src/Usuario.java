@@ -2,6 +2,7 @@ public class Usuario {
     private String nome;
     private int numero;
     private double saldo;
+    private boolean status;
 
     public Usuario(String nome, int numero){
         this.nome = nome;
@@ -10,6 +11,7 @@ public class Usuario {
     }
 
     // Metodos especiais
+
     public void setNome(String nome){
         this.nome = nome;
     }
@@ -31,6 +33,7 @@ public class Usuario {
         return saldo;
     }
 
+
     // Metodos especificos
 
     public void depositar(int valor){
@@ -43,6 +46,10 @@ public class Usuario {
             this.saldo = this.getSaldo() + valor;
         }
 
+    }
+
+    public void changeSatus(){
+        this.status = !status;
     }
 
     public String toString(){
