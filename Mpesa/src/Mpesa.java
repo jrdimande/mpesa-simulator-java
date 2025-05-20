@@ -24,14 +24,14 @@ public class Mpesa {
 
     public void desativarConta(int numero){
         for (int i = 0 ; i < usuarios.size() ; i++){
-            if (usuarios.get(i).getStatus() == true){
+            if (usuarios.get(i).getStatus() == true && usuarios.get(i).getNumero() == numero){
                 usuarios.get(i).setStatus();
             }
         }
     }
     public void reativarConta(int numero){
         for (int i = 0 ; i < usuarios.size() ; i++){
-            if (usuarios.get(i).getStatus() == false){
+            if (usuarios.get(i).getStatus() == false && usuarios.get(i).getNumero() == numero){
                 usuarios.get(i).setStatus();
             }
         }
