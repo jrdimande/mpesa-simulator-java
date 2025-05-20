@@ -1,7 +1,6 @@
 package Mpesa.src;
-
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Movimento {
     private Usuario emissor;
@@ -9,31 +8,32 @@ public class Movimento {
     private double valor;
     private String data;
 
-    public Movimento(Usuario emissor, Usuario receptor, double valor){
+    public Movimento(Usuario emissor, Usuario receptor, int valor) {
         this.emissor = emissor;
         this.receptor = receptor;
         this.valor = valor;
         this.data = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
     }
 
-    public void mostrarDetalhes(){
-        System.out.println("Remetente: " + capitalizeName(this.emissor.getNome()));
-        System.out.println("Destinatario: " + capitalizeName(this.receptor.getNome()));
-        System.out.println("Valor em meticais: " + valor + " Meticais");
-        System.out.println("Data da transiao: " + data);
-
-
+    public Usuario getEmissor(){
+        return this.emissor;
     }
-    private String capitalizeName(String nome){
-        String[] partes = nome.split(" ");
-        StringBuilder capitalized = new StringBuilder();
-
-        for (String parte : partes){
-            if (!parte.isEmpty()){
-                capitalized.append(Character.toUpperCase(parte.charAt(0))).append(parte.substring(1).toLowerCase()).append(" ");
-            }
-        }return capitalized.toString().trim();
-
+    public Usuario getReceptor(){
+        return this.receptor;
+    }
+    public double getValor(){
+        return  this.valor;
+    }
+    public String getData(){
+        return this.data;
+    }
+    public String toString() {
+        return "Remetente: " + emissor.getNome() +
+                " (" + emissor.getNumero() + ") | " +
+                "Beneficiário: " + receptor.getNome() +
+                " (" + receptor.getNumero() + ") | " +
+                "Valor: " + valor + " MZN | " +
+                "Data: " + data;
     }
 
 }

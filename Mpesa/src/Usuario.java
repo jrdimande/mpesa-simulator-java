@@ -58,7 +58,7 @@ public class Usuario {
 
     public void mostrarMovimentos(){
         for (int i = 0; i < this.movimentos.size(); i++){
-            System.out.println(movimentos.get(i));
+            System.out.println(movimentos.get(i).toString());
         }
     }
 
