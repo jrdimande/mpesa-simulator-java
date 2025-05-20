@@ -1,13 +1,20 @@
+package Mpesa.src;
+
+import java.util.ArrayList;
+
 public class Usuario {
     private String nome;
     private int numero;
     private double saldo;
+    private ArrayList<Movimento> movimentos;
     private boolean status;
 
     public Usuario(String nome, int numero){
         this.nome = nome;
-        this.nome = numero;
+        this.numero = numero;
         this.saldo = 0;
+        this.status = true;
+        this.movimentos = new ArrayList<>();
     }
 
     // Metodos especiais
@@ -33,28 +40,29 @@ public class Usuario {
         return saldo;
     }
 
-
-    // Metodos especificos
-
-    public void depositar(int valor){
-        if (valor > 0){
-            this.saldo = this.getSaldo() + valor;
-        }
-    }
-    public void levantar(int valor){
-        if (valor > 0){
-            this.saldo = this.getSaldo() + valor;
-        }
-
-    }
-
-    public void changeSatus(){
+    public void setStatus(){
         this.status = !status;
     }
+    public boolean getStatus(){
+        return this.status;
+    }
+    public ArrayList getMovimentos(){
+        return this.movimentos;
+    }
+
+
 
     public String toString(){
-        return "Nome: " + getNome() " Numero: " + getNumero() + "Saldo: " + getSaldo();
+        return "Nome: " + getNome() + " Numero: " + getNumero() + " Saldo: " + this.getSaldo() + " MZN";
     }
+
+    public void mostrarMovimentos(){
+        for (int i = 0; i < this.movimentos.size(); i++){
+            System.out.println(movimentos.get(i));
+        }
+    }
+
+
 
 
 }
