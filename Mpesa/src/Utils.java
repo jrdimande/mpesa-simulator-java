@@ -8,21 +8,18 @@ public class Utils {
 
         if (tamanho == 9){
             return true;
-        }else {
-            return false;
         }
-
     }
 
+    // Função para validar valor
     public boolean validarValor(int numero){
         if (numero < 0){
             return true;
-        }else {
-            return false;
         }
 
     }
 
+    // Funçao para validar nome do usuário
     public boolean validarNome(String nome){
 
     }

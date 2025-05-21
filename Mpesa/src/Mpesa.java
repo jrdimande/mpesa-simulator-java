@@ -13,7 +13,7 @@ public class Mpesa {
     // Método para criar conta
     public void criarConta(String nome, int numero){
 
-        if (validar.validarNumero(numero) == true){
+        if (validar.validarNumero(numero)){
             Usuario newUser = new Usuario(nome, numero);
             usuarios.add(newUser);
         }
@@ -21,7 +21,7 @@ public class Mpesa {
 
     // Método para remover conta
     public void removerConta(int numero){
-        if (validar.validarNumero(numero) == true){
+        if (validar.validarNumero(numero)){
             for (int i = 0; i < usuarios.size(); i++){
                 if (usuarios.get(i).getNumero() == numero){
                     usuarios.remove(i);
@@ -33,9 +33,9 @@ public class Mpesa {
 
     // Método para desativar conta
     public void desativarConta(int numero){
-        if (validar.validarNumero(numero) == true){
+        if (validar.validarNumero(numero)){
             for (int i = 0 ; i < usuarios.size() ; i++){
-                if (usuarios.get(i).getStatus() == true && usuarios.get(i).getNumero() == numero){
+                if (usuarios.get(i).getStatus()  && usuarios.get(i).getNumero() == numero){
                     usuarios.get(i).setStatus();
                 }
             }
@@ -46,9 +46,9 @@ public class Mpesa {
 
     // Método para reativar conta
     public void reativarConta(int numero){
-        if (validar.validarNumero(numero) == true){
+        if (validar.validarNumero(numero)){
             for (int i = 0 ; i < usuarios.size() ; i++){
-                if (usuarios.get(i).getStatus() == false && usuarios.get(i).getNumero() == numero){
+                if (usuarios.get(i).getStatus() && usuarios.get(i).getNumero() == numero){
                     usuarios.get(i).setStatus();
                 }
             }
@@ -80,7 +80,7 @@ public class Mpesa {
         for (int i = 0; i < usuarios.size(); i++){
             if (usuarios.get(i).getNumero() == numero){
                 if (valor > 0){
-                    if (usuarios.get(i).getStatus() == true){
+                    if (usuarios.get(i).getStatus()){
                         usuarios.get(i).setSaldo(usuarios.get(i).getSaldo() + valor);
                     }
                 }
@@ -102,7 +102,7 @@ public class Mpesa {
 
     // Método para transferir valor de uma conta para outra
     public void transferirValor(int numeroEmissor, int numeroReceptor, int valor){
-        if (validar.validarNumero(numeroEmissor) == true && validar.validarNumero(numeroReceptor) == true){
+        if (validar.validarNumero(numeroEmissor)  && validar.validarNumero(numeroReceptor)  && validar.validarValor(valor) ){
             Usuario emissor = buscarUsuario(numeroEmissor);
             Usuario receptor = buscarUsuario(numeroReceptor);
 
