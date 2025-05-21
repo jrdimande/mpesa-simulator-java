@@ -18,7 +18,6 @@ public class Usuario {
     }
 
     // Metodos especiais
-
     public void setNome(String nome){
         this.nome = nome;
     }
@@ -52,6 +51,7 @@ public class Usuario {
 
 
 
+    // Métodos específicos
     public String toString(){
         return "Nome: " + getNome() + " Numero: " + getNumero() + " Saldo: " + this.getSaldo() + " MZN";
     }
